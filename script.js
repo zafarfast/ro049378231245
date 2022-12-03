@@ -1,6 +1,5 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var clearBtn = document.querySelector("#clear");
 
 // Write password to the #password input
 function writePassword() {
@@ -11,17 +10,8 @@ function writePassword() {
 
 }
 
-// Added a new function so the user don't have to refresh the page everytime
-
-function clearText(){
-  var passwordText = document.querySelector("#password");
-  passwordText.value = "Press 'Generate Password' button below";
-
-}
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-clearBtn.addEventListener("click", clearText);
 
 /*--------------------------------Function - Create Password----------------------------------------------------------------------------------*/
 
@@ -56,6 +46,7 @@ if (useUpperChar === false && useLowerChar === false && useSpecialChar === false
     exit = false;
   }
 else {exit = true;}
+
 }
 
 
@@ -85,11 +76,12 @@ if (useUpperChar === true && useLowerChar === true && useSpecialChar === true &&
   else if (useUpperChar === false && useLowerChar === true && useSpecialChar === true && useNumbers === false)
   {lsC(userInput);}
   else if (useUpperChar === false && useLowerChar === true && useSpecialChar === false && useNumbers === false)
-  {lC(userInput);}
+  {lC1(userInput);
+  }
   else if (useUpperChar === false && useLowerChar === false && useSpecialChar === true && useNumbers === true)
   {snC(userInput);}
   else if (useUpperChar === false && useLowerChar === false && useSpecialChar === true && useNumbers === false)
-  {sC(userInput);}
+  {sC1(userInput);}
   else if (useUpperChar === false && useLowerChar === false && useSpecialChar === false && useNumbers === true)
   {nC1(userInput);}
 
@@ -108,7 +100,7 @@ var specialChar = /[!,@,#,$,%,^,&,*,(,),_,+,-,=,<,>,?,/,.,:,',"]/.test(a);
 if (numb && !lowercaseChar && !upperCase && !specialChar) 
 {
   a = parseInt(a);
-  if (a >= 8 && a < 128)
+  if (a >= 8 && a <= 128) //8-128 password length check
     {
       return true;
     }
@@ -268,7 +260,7 @@ for (var i=0; i<userInput; i++)
 }
 
 /*--------------------------------Password Generator for LowerCase-----------------------------------------------------------------------*/
-function lC(userInput)
+function lC1(userInput)
 {
 for (var i=0; i<userInput; i++)
 {
@@ -291,7 +283,7 @@ for (var i=0; i<userInput; i++)
 }
 
 /*--------------------------------Password Generator for SpecialChar--------------------------------------------------------------------*/
-function sC(userInput)
+function sC1(userInput)
 {
 for (var i=0; i<userInput; i++)
 {
