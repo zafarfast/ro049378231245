@@ -2,6 +2,10 @@
 
 ## Random Password generator
 
+### Screenshot
+
+![screenshot](screenshot.png)
+
 ### Acceptence criteria:
 
 - Ask user how about the password length in numbers only.
