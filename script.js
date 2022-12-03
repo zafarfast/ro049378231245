@@ -29,11 +29,11 @@ function createPassword()
 {
 while (check != true)
 {
-var userInput = prompt("Enter password length below")
+var userInput = prompt("Enter required password length between 8 to 128 characters,")
 var check = checkValidInput(userInput);
 if (check === false)
   {
-    alert ("Input is not a valid number, please try again.");
+    alert ("Input is not a valid number or password length requirement not met, please try again.");
   }
 }
 
@@ -42,11 +42,23 @@ userInput = parseInt(userInput);
 
 alert("Pasword length is " + userInput);
 
+var exit = false;
 
+while (exit === false) //Check to ensure that atleast one character type is selected
+{
 var useUpperChar = confirm('Do you want to use upper case alphabets?');
 var useLowerChar = confirm('Do you want to use lower case alphabets?');
 var useSpecialChar = confirm('Do you want to use special characters?');
 var useNumbers = confirm("Do you want to use numbers?");
+
+if (useUpperChar === false && useLowerChar === false && useSpecialChar === false && useNumbers === false)
+  {alert ("Atleat one character type must be selected");
+    exit = false;
+  }
+else {exit = true;}
+}
+
+
 
 /* Conditional checks to call the right password generator function based on user preferences*/
 
@@ -68,8 +80,7 @@ if (useUpperChar === true && useLowerChar === true && useSpecialChar === true &&
   {snC(userInput);}
   else if (useUpperChar === false && useLowerChar === false && useSpecialChar === true && useNumbers === false)
   {sC(userInput);}
-  else if (useUpperChar === false && useLowerChar === false && useSpecialChar === false && useNumbers === false)
-  {alert ("No password for you, you didn't select any characters!");}
+  
 
 }
 
@@ -85,7 +96,15 @@ var specialChar = /[!,@,#,$,%,^,&,*,(,),_,+,-,=,<,>,?,/,.,:,',"]/.test(a);
 
 if (numb && !lowercaseChar && !upperCase && !specialChar) 
 {
-  return true;
+  a = parseInt(a);
+  if (a >= 8 && a < 128)
+    {
+      return true;
+    }
+    else {
+          return false;
+        }
+  
 } 
 
 else {
