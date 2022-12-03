@@ -70,6 +70,16 @@ if (useUpperChar === true && useLowerChar === true && useSpecialChar === true &&
   {ulC(userInput);}
   else if (useUpperChar === true && useLowerChar === false && useSpecialChar === false && useNumbers === false)
   {uC1(userInput);}
+  else if (useUpperChar === true && useLowerChar === false && useSpecialChar === false && useNumbers === true)
+  {unC(userInput);}
+  else if (useUpperChar === true && useLowerChar === false && useSpecialChar === true && useNumbers === true)
+  {usnC(userInput);}
+  else if (useUpperChar === true && useLowerChar === false && useSpecialChar === true && useNumbers === false)
+  {usC(userInput);}
+  else if (useUpperChar === true && useLowerChar === true && useSpecialChar === false && useNumbers === false)
+  {ulC(userInput);}
+  else if (useUpperChar === true && useLowerChar === true && useSpecialChar === false && useNumbers === true)
+  {ulnC(userInput);}
   else if (useUpperChar === false && useLowerChar === true && useSpecialChar === true && useNumbers === true)
   {lsnC(userInput);}
   else if (useUpperChar === false && useLowerChar === true && useSpecialChar === true && useNumbers === false)
@@ -80,7 +90,8 @@ if (useUpperChar === true && useLowerChar === true && useSpecialChar === true &&
   {snC(userInput);}
   else if (useUpperChar === false && useLowerChar === false && useSpecialChar === true && useNumbers === false)
   {sC(userInput);}
-  
+  else if (useUpperChar === false && useLowerChar === false && useSpecialChar === false && useNumbers === true)
+  {nC1(userInput);}
 
 }
 
@@ -147,6 +158,22 @@ for (var i=0; i<userInput; i++)
 }
 }
 
+/*--------------------------------Password Generator for UpperCase,LowerCase,Numbers----------------------------------------------------*/
+function ulnC(userInput)
+{
+for (var i=0; i<userInput; i++)
+{
+  var genRandomNum = Math.floor(Math.random()*10%3);
+
+  if (genRandomNum === 0)
+  {password += uC[Math.floor(Math.random()*100)%26];}
+  else if (genRandomNum === 1)
+  {password += lC[Math.floor(Math.random()*100)%26];}
+  else if (genRandomNum === 2)
+  {password += nC[Math.floor(Math.random()*100)%10];}
+}
+}
+
 /*--------------------------------Password Generator for UpperCase,LowerCase---------------------------------------------------------------*/
 function ulC(userInput)
 {
@@ -169,6 +196,46 @@ for (var i=0; i<userInput; i++)
   password += uC[Math.floor(Math.random()*100)%26];
 }
 }
+
+/*--------------------------------Password Generator for UpperCase,SpecialChar,Numbers-----------------------------------------------------*/
+function usnC(userInput)
+{
+for (var i=0; i<userInput; i++)
+{
+  password += uC[Math.floor(Math.random()*100)%26];
+}
+}
+
+/*--------------------------------Password Generator for UpperCase,Numbers-----------------------------------------------------*/
+function usC(userInput)
+{
+for (var i=0; i<userInput; i++)
+{
+  var genRandomNum = Math.floor(Math.random()*10%2);
+
+  if (genRandomNum === 0)
+  {password += uC[Math.floor(Math.random()*100)%26];}
+  else if (genRandomNum === 1)
+  {password += sC[Math.floor(Math.random()*100)%29];}
+
+}
+}
+
+/*--------------------------------Password Generator for UpperCase,SpecialChar-----------------------------------------------------*/
+function unC(userInput)
+{
+for (var i=0; i<userInput; i++)
+{
+  var genRandomNum = Math.floor(Math.random()*10%2);
+
+  if (genRandomNum === 0)
+  {password += uC[Math.floor(Math.random()*100)%26];}
+  else if (genRandomNum === 1)
+  {password += sC[Math.floor(Math.random()*100)%29];}
+
+}
+}
+
 
 /*--------------------------------Password Generator for LowerCase,SpecialChar,Numbers---------------------------------------------------*/
 function lsnC(userInput)
@@ -233,7 +300,7 @@ for (var i=0; i<userInput; i++)
 }
 
 /*--------------------------------Password Generator for Numbers-----------------------------------------------------------------------*/
-function nC(userInput)
+function nC1(userInput)
 {
 for (var i=0; i<userInput; i++)
 {
