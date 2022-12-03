@@ -1,8 +1,8 @@
-### week-3-challenge
+# week-3-challenge
 
 ## Random Password generator
 
-# Acceptence criteria:
+### Acceptence criteria:
 
 - Ask user how about the password length in numbers only.
 - Ask user whether they want to include special characters.
